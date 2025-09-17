@@ -73,6 +73,18 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#instruction-set-architectures-isas">Instruction Set Architectures (ISAs)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#x86-architecture">x86 Architecture</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#arm-architecture">ARM Architecture</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#avr-architecture">AVR Architecture</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
+        </ul>
+    </li>
         </ul>
     </li>
     </ul>
@@ -311,6 +323,76 @@ vice versa (functionality).</p>
 </li>
 </ul>
 <p><img alt="von_neumann_vs_harvard" src="../von_neumann_vs_harvard.png" /></p>
+<h3 id="instruction-set-architectures-isas">Instruction Set Architectures (ISAs)</h3>
+<p>An <strong>Instruction Set Architecture (ISA)</strong> defines the set of instructions that a CPU can execute. Different families of processors use different ISAs, optimized for different purposes.</p>
+<h4 id="x86-architecture">x86 Architecture</h4>
+<ul>
+<li>Originated with Intel 8086 (1978).</li>
+<li>Complex Instruction Set Computer (<strong>CISC</strong>) – many specialized instructions.</li>
+<li>Dominant in personal computers and servers.</li>
+<li>High backward compatibility (can still run very old code).</li>
+<li>Large, complex instruction set with advanced microarchitectural optimizations.</li>
+</ul>
+<h4 id="arm-architecture">ARM Architecture</h4>
+<ul>
+<li>First appeared in Acorn Archimedes (1987), later spun off as ARM Holdings.</li>
+<li>Reduced Instruction Set Computer (<strong>RISC</strong>) – small, simple set of instructions.</li>
+<li>Used in mobile devices, tablets, embedded systems, and increasingly laptops and servers (e.g., Apple M1/M2, AWS Graviton).</li>
+<li>High performance per watt (very energy efficient).</li>
+<li>Scales from tiny microcontrollers to high-end processors.</li>
+</ul>
+<h4 id="avr-architecture">AVR Architecture</h4>
+<ul>
+<li>Developed in 1996 (Norwegian Institute of Technology, later Atmel).</li>
+<li>RISC-based 8-bit microcontroller ISA.</li>
+<li>Widely used in embedded systems and Arduino boards.</li>
+<li>Small, low-power, inexpensive.</li>
+<li>Integrates Flash, EEPROM, and RAM on the same chip.</li>
+</ul>
+<hr />
+<h4 id="comparison-table_1">Comparison Table</h4>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>x86 (CISC)</th>
+<th>ARM (RISC)</th>
+<th>AVR (RISC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First Release</td>
+<td>1978 (Intel 8086)</td>
+<td>1987 (Acorn Archimedes)</td>
+<td>1996 (Atmel)</td>
+</tr>
+<tr>
+<td>Instruction Set</td>
+<td>Large, complex</td>
+<td>Small, simple</td>
+<td>Small, simple (8-bit)</td>
+</tr>
+<tr>
+<td>Main Usage</td>
+<td>PCs, laptops, servers</td>
+<td>Mobile, tablets, servers, IoT</td>
+<td>Embedded, Arduino</td>
+</tr>
+<tr>
+<td>Efficiency</td>
+<td>High performance, less efficient per watt</td>
+<td>Very energy efficient</td>
+<td>Extremely low power</td>
+</tr>
+<tr>
+<td>Cost/Scale</td>
+<td>Expensive, high complexity</td>
+<td>Scales across many devices</td>
+<td>Low cost, hobbyist friendly</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div><footer>
