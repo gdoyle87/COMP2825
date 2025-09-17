@@ -51,7 +51,27 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#computers-and-programs">Computers and Programs</a>
         <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#program-execution">Program Execution</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#program-languages-and-levels">Program Languages and Levels</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#multilevel-machines">Multilevel Machines</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#hardware-vs-software-and-control-units">Hardware vs Software and Control Units</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#control-unit-microprogrammed-vs-hardwired">Control Unit: Microprogrammed vs Hardwired</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#computer-architecture_1">Computer Architecture</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#computer-generations">Computer Generations</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#harvard-vs-von-neumann-architecture">Harvard vs. Von Neumann Architecture</a>
+    </li>
+        </ul>
     </li>
         </ul>
     </li>
@@ -103,7 +123,7 @@ components like ALUs, registers, and buses.</p>
 <h2 id="computers-and-programs">Computers and Programs</h2>
 <p>A computer <em>executes</em> given <em>instructions (programs)</em> to produce <em>results</em> for 
 the user.</p>
-<p>A <strong>program</strong> is a set of instructions written in a high level programming language.</p>
+<h3 id="program-execution">Program Execution</h3>
 <p>In general, when it comes to <strong>executing</strong> a given program, there are two methods:</p>
 <ol>
 <li><strong>Translation</strong> (compilation)<ul>
@@ -118,6 +138,7 @@ high-level programs instruction by instruction during runtime. </li>
 </li>
 </ol>
 <h3 id="program-languages-and-levels">Program Languages and Levels</h3>
+<p>A <strong>program</strong> is a set of instructions written in a high level programming language.</p>
 <ol>
 <li>
 <p><strong>Machine Language (low level)</strong>
@@ -126,7 +147,7 @@ high-level programs instruction by instruction during runtime. </li>
 <li>
 <p><strong>Human-Readable Machine Language</strong>
     <br>Uses mnemonics instead of binary, but still closely tied to hardware. 
-    <br>Each instruction maps directly to machine code.  <strong>Example:</strong> Assembly (1949)</p>
+    <br>Each instruction maps directly to machine code.  Example: <strong>Assembly (1949)</strong></p>
 </li>
 <li>
 <p><strong>"Modern" Programming Languages (high level)</strong>
@@ -135,6 +156,161 @@ high-level programs instruction by instruction during runtime. </li>
 Java (1995), Python (1991), JavaScript (1995)</strong> </p>
 </li>
 </ol>
+<h4 id="multilevel-machines">Multilevel Machines</h4>
+<ol>
+<li><strong>Digital Logic Level</strong>  </li>
+<li>Built from basic logic gates (<strong>AND, OR, NOT</strong>).  </li>
+<li>
+<p>These gates form circuits that make up components like CPU and memory.  </p>
+</li>
+<li>
+<p><strong>Microarchitecture Level</strong>  </p>
+</li>
+<li>Executes instructions using hardware components: <strong>ALU, registers, microprograms, memory</strong>.  </li>
+<li>A <strong>microprogram</strong> controls how instructions are executed.  </li>
+<li>
+<p>Represents the actual organization of the CPU at the circuit level.  </p>
+</li>
+<li>
+<p><strong>Instruction Set Architecture (ISA) Level</strong>  </p>
+</li>
+<li>Defines the set of machine instructions available (e.g., <code>LOAD</code>, <code>ADD</code>, <code>STORE</code>).  </li>
+<li>Independent of how the CPU actually implements them.  </li>
+<li>
+<p><strong>Analogy:</strong> Like a <strong>menu</strong> in a restaurant — lists the “dishes” (operations) you can order, but not how they’re cooked.  </p>
+</li>
+<li>
+<p><strong>Operating System Machine Level</strong>  </p>
+</li>
+<li>Main duties: <strong>memory management, process execution, and system resource protection</strong>.  </li>
+<li>Provides abstraction to simplify programming.  </li>
+<li>Assembly instructions generally pass through this level unchanged.  </li>
+<li>
+<p>Some interpretation happens here, as the OS manages low-level execution details.  </p>
+</li>
+<li>
+<p><strong>Assembly Language Level</strong>  </p>
+</li>
+<li>Human-readable mnemonics (e.g., <code>MOV</code>, <code>ADD</code>).  </li>
+<li>Harder to use — even simple programs require many lines.  </li>
+<li>
+<p>Translated into machine code by an <strong>assembler</strong>.  </p>
+</li>
+<li>
+<p><strong>Problem-Oriented Language Level (High-Level Languages)</strong>  </p>
+</li>
+<li>Includes languages like <strong>C, Java, Python</strong>.  </li>
+<li>Easier for humans to read, write, and maintain.  </li>
+<li>Compilers or interpreters convert these programs into assembly/machine code.  </li>
+</ol>
+<h3 id="hardware-vs-software-and-control-units">Hardware vs Software and Control Units</h3>
+<p>Anything that can be done with software can also be done with hardware, and
+vice versa (functionality).</p>
+<p>Hardware is generally <em>faster</em> and <em>more expensive</em>.</p>
+<h4 id="control-unit-microprogrammed-vs-hardwired">Control Unit: Microprogrammed vs Hardwired</h4>
+<p>The <strong>Control Unit (CU)</strong> generates the control signals that tell the CPU’s datapath (ALU, registers, memory, etc.) what to do when executing instructions.</p>
+<hr />
+<h5 id="microprogrammed-control-unit">Microprogrammed Control Unit</h5>
+<ul>
+<li><strong>Software-based control</strong>: Control signals are stored in a special memory (control memory, often ROM).  </li>
+<li>A <strong>microprogram</strong> is a sequence of microinstructions that generate the necessary control signals.  </li>
+<li>Execution = fetching and running these microinstructions in sequence.  </li>
+<li><strong>Advantages:</strong></li>
+<li>Easy to modify or extend (new instructions can be added by changing the microprogram).  </li>
+<li>Flexible and easier to design.  </li>
+<li><strong>Disadvantages:</strong></li>
+<li>Slower than hardwired control, since every instruction is broken into microinstructions that must be fetched and interpreted.  </li>
+</ul>
+<p><strong>Example (slides):</strong>
+- Microprogram (P1): LEDs moving to the right.<br />
+- Microprogram (P2): LEDs moving to the left.<br />
+- Stored in ROM, and switching the program changes the behavior.</p>
+<hr />
+<h5 id="hardwired-control-unit">Hardwired Control Unit</h5>
+<ul>
+<li><strong>Hardware-based control</strong>: Control signals are generated directly by fixed logic circuits.  </li>
+<li>No control memory — logic gates are wired to decode the opcode and trigger control signals.  </li>
+<li><strong>Advantages:</strong></li>
+<li>Much faster (signals generated directly by circuits).  </li>
+<li><strong>Disadvantages:</strong></li>
+<li>Inflexible — changing the instruction set requires redesigning the hardware.  </li>
+<li>More complex design as instruction sets grow.  </li>
+</ul>
+<hr />
+<h5 id="comparison-table">Comparison Table</h5>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Microprogrammed CU</th>
+<th>Hardwired CU</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Implementation</td>
+<td>Control memory + microinstructions</td>
+<td>Fixed logic circuits</td>
+</tr>
+<tr>
+<td>Flexibility</td>
+<td>Easy to modify, new instructions easy</td>
+<td>Difficult to change</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td>Slower (extra step: microinstruction)</td>
+<td>Faster (direct hardware)</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Simpler design</td>
+<td>More complex for large ISAs</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h5 id="historical-context">Historical Context</h5>
+<ul>
+<li><strong>Early computers</strong>: Direct hardwired execution.  </li>
+<li><strong>Mid-generation</strong>: Microprogramming introduced to simplify control of complex instruction sets.  </li>
+<li><strong>Modern trend</strong>: Moving back toward hardwired (or simplified ISAs) because microprogramming slows down execution.  </li>
+</ul>
+<h3 id="computer-architecture_1">Computer Architecture</h3>
+<h4 id="computer-generations">Computer Generations</h4>
+<ul>
+<li>Zeroth Generation (1642 – 1945): Mechanical Computers (e.g., Pascal's calculator).</li>
+<li>First Generation (1945 – 1955): Vacuum Tubes (e.g., ENIAC – large, 
+ power-hungry, first electronic general-purpose computer). * Von Neumann 
+ Architecture (1945): Both data and program stored in memory (still the basis 
+ for most digital computers).</li>
+<li>Second Generation (1955 – 1965): Transistors (e.g., IBM 7094, PDP-8 with a 
+ single bus/omnibus). Smaller, faster, cheaper.</li>
+<li>Third Generation (1965 – 1980): Integrated Circuits (IC) (e.g., IBM 360).
+ Dozens of transistors on a single chip, leading to even smaller, faster, and cheaper computers.</li>
+<li>Fourth Generation (1980 – ?): Very Large Scale Integration (VLSI) (e.g., 
+ Intel CPUs). Millions of transistors on a single chip.</li>
+</ul>
+<h4 id="harvard-vs-von-neumann-architecture">Harvard vs. Von Neumann Architecture</h4>
+<ul>
+<li>Harvard Architecture: <ul>
+<li>Separate memory for data and code.</li>
+<li>Two separate data paths for instructions and data. </li>
+<li>Faster (can access instructions and data simultaneously). </li>
+<li>Used in microcontrollers, DSPs. </li>
+<li>More complex design.</li>
+</ul>
+</li>
+<li>Von Neumann Architecture: <ul>
+<li>Shared memory for data and code. </li>
+<li>One shared data path for both. </li>
+<li>Slower (one access at a time). </li>
+<li>Used in general-purpose computers (PCs, laptops). </li>
+<li>Simpler design.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="von_neumann_vs_harvard" src="../von_neumann_vs_harvard.png" /></p>
               
             </div>
           </div><footer>
