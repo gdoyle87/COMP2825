@@ -3,7 +3,7 @@
 ## Overview
 
 For full course information [COMP 2825 - BCIT](https://www.bcit.ca/courses/computer-architecture-and-organization-comp-2825/)
-<br>Course taken in **Fall 2025 term** ([outline](https://www.bcit.ca/outlines/20253051985/)) with **Bob Langelaan**.
+<br>Course taken in **Fall 2025 term** ([outline](https://www.bcit.ca/outlines/20253051985/)) with **Rahim Oraji**.
 
 - Midterm and Final ***in-person***
 - weekly quizes
