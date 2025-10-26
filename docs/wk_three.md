@@ -16,10 +16,10 @@ Boolean algebra deals with **binary values** and **logic operations**.
 | Operations | NOT (A'), AND (A·B), OR (A+B), XOR (A⊕B) |
 
 ??? example "Examples of Boolean expressions"
-A·B  
- A + B  
- A'(B + C)  
- A ⊕ B
+    A·B  
+    A + B  
+    A'(B + C)  
+    A ⊕ B
 
 ---
 
@@ -28,12 +28,12 @@ A·B
 A truth table lists **all possible input combinations** and the resulting output.
 
 ??? example "Example Truth Table for AND"
-| A | B | A·B |
-|---|---|-----|
-| 0 | 0 | 0 |
-| 0 | 1 | 0 |
-| 1 | 0 | 0 |
-| 1 | 1 | 1 |
+    | A | B | A·B |
+    |---|---|-----|
+    | 0 | 0 | 0 |
+    | 0 | 1 | 0 |
+    | 1 | 0 | 0 |
+    | 1 | 1 | 1 |
 
 ---
 
@@ -57,13 +57,13 @@ Simplify:
 F = A'B + AB' + AB
 
 ??? example "Step-by-Step Simplification"
-F = A'B + AB' + AB  
- = B(A' + A) + AB'  
- = B(1) + AB'  
- = B + AB'  
- = (B + A)(B + B')  
- = A + B
-
+    F = A'B + AB' + AB  
+     = B(A' + A) + AB'  
+     = B(1) + AB'  
+     = B + AB'  
+     = (B + A)(B + B')  
+     = A + B
+    
 **Final Answer:**  
 F = A + B
 
@@ -122,8 +122,8 @@ This means **C** remains; A and B vary → they drop out.
 F = C
 
 ??? example "Why this simplifies to C"
-C is the only input that is 1 in all grouped minterms.
-A and B change, so they do not appear in the final expression.
+    C is the only input that is 1 in all grouped minterms.
+    A and B change, so they do not appear in the final expression.
 
 ---
 
@@ -139,31 +139,3 @@ A and B change, so they do not appear in the final expression.
 | NOR  | (A + B)' | Inverted OR                    |
 
 ---
-
-## Designing Logic Circuits
-
-1. Identify inputs and outputs.
-2. Build a **truth table**.
-3. Convert table to **SOP** expression.
-4. Simplify using identities or K-map.
-5. Draw the circuit using logic gates.
-
----
-
-## Summary
-
-| Topic           | Key Skill                      |
-| --------------- | ------------------------------ |
-| Boolean Algebra | Manipulate expressions         |
-| Truth Tables    | Enumerate logical cases        |
-| SOP/POS         | Convert forms of expressions   |
-| K-Maps          | Simplify visually              |
-| Logic Gates     | Implement circuits in hardware |
-
----
-
-## Recommended Practice
-
-- Simplify F = A'BC + ABC' + AB'C
-- Draw a 3-variable K-map and simplify it
-- Convert between SOP and POS forms

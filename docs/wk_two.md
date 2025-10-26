@@ -27,17 +27,16 @@ Computers operate using **binary (base 2)**, so we often need to convert between
 4. Binary result = remainders read **bottom → top**.
 
 ??? example "Example: 224₁₀ → Binary"
-```
-224 ÷ 2 = 112 r0
-112 ÷ 2 = 56 r0
-56 ÷ 2 = 28 r0
-28 ÷ 2 = 14 r0
-14 ÷ 2 = 7 r0
-7 ÷ 2 = 3 r1
-3 ÷ 2 = 1 r1
-1 ÷ 2 = 0 r1
-
-    → 11100000₂
+    ```
+    224 ÷ 2 = 112 r0
+    112 ÷ 2 = 56 r0
+    56 ÷ 2 = 28 r0
+    28 ÷ 2 = 14 r0
+    14 ÷ 2 = 7 r0
+    7 ÷ 2 = 3 r1
+    3 ÷ 2 = 1 r1
+    1 ÷ 2 = 0 r1
+    11100000₂
     ```
 
 #### Binary → Decimal (Positional weighting)
@@ -47,22 +46,22 @@ Computers operate using **binary (base 2)**, so we often need to convert between
 \]
 
 ??? example "Example: 1101₂ → Decimal"
-`     (1×2³) + (1×2²) + (0×2¹) + (1×2⁰)
+    ```     (1×2³) + (1×2²) + (0×2¹) + (1×2⁰)
     = 8 + 4 + 0 + 1 = 13₁₀
-    `
+    ```
 
 ---
 
 ### Binary ↔ Hexadecimal (Group by 4 bits)
 
 ??? example "Example: Binary → Hex"
-`     1101 0110 1001₂
+    `     1101 0110 1001₂
     D    6    9
     → D69₁₆
     `
 
 ??? example "Example: Hex → Binary"
-`     A  F  2
+    `     A  F  2
     1010 1111 0010₂
     `
 
@@ -93,11 +92,10 @@ To negate a number:
 2. Add 1.
 
 ??? example "Example: Represent −24₁₀"
-```
-+24 = 00011000₂
-invert → 11100111₂
-+1 → 11101000₂
-
+    ```
+    +24 = 00011000₂
+    invert → 11100111₂
+    +1 → 11101000₂
     → −24 = 11101000₂
     ```
 
@@ -121,9 +119,9 @@ a - b = a + (-b)
 \]
 
 ??? example "Example: 3 − 13"
-```
-3 = 00000011
-13 = 00001101
+    ```
+    3 = 00000011
+    13 = 00001101
 
     -13 = invert + 1 = 11110011
 
@@ -164,7 +162,7 @@ E_b = E + \text{bias}
 ### Converting Fractions to Binary
 
 ??? example "Example: 0.75₁₀ → Binary"
-`     0.75 × 2 = 1.5 → 1
+    `     0.75 × 2 = 1.5 → 1
     0.50 × 2 = 1.0 → 1
     → 0.11₂
     `
