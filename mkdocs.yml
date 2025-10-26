@@ -7,9 +7,34 @@ nav:
   - Week 3 - Boolean Algebra and Logic Gates: wk_three.md
   - Other Notes: https://gdoyle87.github.io/
 
-theme: readthedocs
+theme:
+  name: material
+  features:
+    - toc.integrate # move page TOC into the left nav
+    - navigation.expand # expand sections by default (feels like RTD)
+    - navigation.sections
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue grey
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
 markdown_extensions:
   - md_in_html
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.details
 
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/asciinema-player@3.0.1/dist/bundle/asciinema-player.js
