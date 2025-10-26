@@ -368,6 +368,57 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#binary-decimal-positional-weighting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary → Decimal (Positional weighting)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#binary-hexadecimal-group-by-4-bits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary ↔ Hexadecimal (Group by 4 bits)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#representing-integers-in-binary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Representing Integers in Binary
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Representing Integers in Binary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unsigned-integers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unsigned Integers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signed-integers-twos-complement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Signed Integers (Two’s Complement)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#twos-complement-integer-range" class="md-nav__link">
     <span class="md-ellipsis">
       Two’s Complement Integer Range
@@ -385,8 +436,35 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#floating-point-representation-ieee-754" class="md-nav__link">
+    <span class="md-ellipsis">
+      Floating Point Representation (IEEE 754)
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#converting-fractions-to-binary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Converting Fractions to Binary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-ieee-754-encoding-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Full IEEE 754 Encoding Example
+    </span>
+  </a>
   
 </li>
         
@@ -524,8 +602,7 @@
 </ol>
 <details class="example">
 <summary>Example: 224₁₀ → Binary</summary>
-</details>
-<p><div class="highlight"><pre><span></span><code>224 ÷ 2 = 112 r0
+<div class="highlight"><pre><span></span><code>224 ÷ 2 = 112 r0
 112 ÷ 2 = 56 r0
 56 ÷ 2 = 28 r0
 28 ÷ 2 = 14 r0
@@ -533,70 +610,75 @@
 7 ÷ 2 = 3 r1
 3 ÷ 2 = 1 r1
 1 ÷ 2 = 0 r1
-
-    → 11100000₂
-    ```
-
-#### Binary → Decimal (Positional weighting)
-
-\[
-(an…a_3a_2a_1a_0)\_2 = \sum a_i · 2^i
-\]
-
-??? example &quot;Example: 1101₂ → Decimal&quot;
-`     (1×2³) + (1×2²) + (0×2¹) + (1×2⁰)
-    = 8 + 4 + 0 + 1 = 13₁₀
-    `
-
----
-
-### Binary ↔ Hexadecimal (Group by 4 bits)
-
-??? example &quot;Example: Binary → Hex&quot;
-`     1101 0110 1001₂
-    D    6    9
-    → D69₁₆
-    `
-
-??? example &quot;Example: Hex → Binary&quot;
-`     A  F  2
-    1010 1111 0010₂
-    `
-
----
-
-### Representing Integers in Binary
-
-#### Unsigned Integers
-
-With **N bits**, values range from:
-\[
-0 \text{ to } (2^N - 1)
-\]
-
-| Bits   | Range             |
-| ------ | ----------------- |
-| 8-bit  | 0 → 255           |
-| 16-bit | 0 → 65,535        |
-| 32-bit | 0 → ~4.29 billion |
-
----
-
-#### Signed Integers (Two’s Complement)
-
-To negate a number:
-
-1. Invert each bit.
-2. Add 1.
-
-??? example &quot;Example: Represent −24₁₀&quot;
+11100000₂
 </code></pre></div>
-+24 = 00011000₂
+</details>
+<h4 id="binary-decimal-positional-weighting">Binary → Decimal (Positional weighting)</h4>
+<p>[
+(an…a_3a_2a_1a_0)_2 = \sum a_i · 2^i
+]</p>
+<details class="example">
+<summary>Example: 1101₂ → Decimal</summary>
+<p><code>(1×2³) + (1×2²) + (0×2¹) + (1×2⁰)
+= 8 + 4 + 0 + 1 = 13₁₀</code></p>
+</details>
+<hr />
+<h3 id="binary-hexadecimal-group-by-4-bits">Binary ↔ Hexadecimal (Group by 4 bits)</h3>
+<details class="example">
+<summary>Example: Binary → Hex</summary>
+<p><code>1101 0110 1001₂
+D    6    9
+→ D69₁₆</code></p>
+</details>
+<details class="example">
+<summary>Example: Hex → Binary</summary>
+<p><code>A  F  2
+1010 1111 0010₂</code></p>
+</details>
+<hr />
+<h3 id="representing-integers-in-binary">Representing Integers in Binary</h3>
+<h4 id="unsigned-integers">Unsigned Integers</h4>
+<p>With <strong>N bits</strong>, values range from:
+[
+0 \text{ to } (2^N - 1)
+]</p>
+<table>
+<thead>
+<tr>
+<th>Bits</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8-bit</td>
+<td>0 → 255</td>
+</tr>
+<tr>
+<td>16-bit</td>
+<td>0 → 65,535</td>
+</tr>
+<tr>
+<td>32-bit</td>
+<td>0 → ~4.29 billion</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="signed-integers-twos-complement">Signed Integers (Two’s Complement)</h4>
+<p>To negate a number:</p>
+<ol>
+<li>Invert each bit.</li>
+<li>Add 1.</li>
+</ol>
+<details class="example">
+<summary>Example: Represent −24₁₀</summary>
+<div class="highlight"><pre><span></span><code>+24 = 00011000₂
 invert → 11100111₂
-+1 → 11101000₂</p>
-<pre><code>→ −24 = 11101000₂
-```
-</code></pre>
++1 → 11101000₂
+→ −24 = 11101000₂
+</code></pre></div>
+</details>
 <h4 id="twos-complement-integer-range">Two’s Complement Integer Range</h4>
 <p>[
 -(2^{N-1}) \text{ to } (2^{N-1} - 1)
@@ -626,70 +708,84 @@ a - b = a + (-b)
 ]</p>
 <details class="example">
 <summary>Example: 3 − 13</summary>
-</details>
-<p><div class="highlight"><pre><span></span><code>3 = 00000011
+<div class="highlight"><pre><span></span><code>3 = 00000011
 13 = 00001101
 
-    -13 = invert + 1 = 11110011
+-13 = invert + 1 = 11110011
 
-    00000011
-    +11110011
-    ----------
-    11110110 = −10₁₀
-    ```
-
----
-
-#### Floating Point Representation (IEEE 754)
-
-Real numbers are stored in normalized form:
-
-\[
-(-1)^S · (1.F) · 2^E
-\]
-
-Where:
-
-- **S** = sign bit
-- **F** = fraction (mantissa)
-- **E** = exponent (stored using a bias)
-
-| Precision       | Total Bits | Sign | Exponent | Fraction | Bias |
-| --------------- | ---------- | ---- | -------- | -------- | ---- |
-| Single (float)  | 32         | 1    | 8        | 23       | 127  |
-| Double (double) | 64         | 1    | 11       | 52       | 1023 |
-
-Exponent stored as:
-\[
-E_b = E + \text{bias}
-\]
-
----
-
-### Converting Fractions to Binary
-
-??? example &quot;Example: 0.75₁₀ → Binary&quot;
-`     0.75 × 2 = 1.5 → 1
-    0.50 × 2 = 1.0 → 1
-    → 0.11₂
-    `
-
----
-
-### Full IEEE 754 Encoding Example
-
-Convert **−0.75₁₀** to **single precision**:
-
-1. Convert to binary:  
-   0.75 = 0.11₂ = 1.1₂ × 2⁻¹
-2. Sign bit = **1** (negative)
-3. Exponent = −1 → E_b = 127 − 1 = **126 = 01111110₂**
-4. Fraction = **10000000000000000000000**
-
-Final 32-bit value:
+00000011
++11110011
+----------
+11110110 = −10₁₀
 </code></pre></div>
-1 01111110 10000000000000000000000
-```</p>
+</details>
+<hr />
+<h4 id="floating-point-representation-ieee-754">Floating Point Representation (IEEE 754)</h4>
+<p>Real numbers are stored in normalized form:</p>
+<p>[
+(-1)^S · (1.F) · 2^E
+]</p>
+<p>Where:</p>
+<ul>
+<li><strong>S</strong> = sign bit</li>
+<li><strong>F</strong> = fraction (mantissa)</li>
+<li><strong>E</strong> = exponent (stored using a bias)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Precision</th>
+<th>Total Bits</th>
+<th>Sign</th>
+<th>Exponent</th>
+<th>Fraction</th>
+<th>Bias</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single (float)</td>
+<td>32</td>
+<td>1</td>
+<td>8</td>
+<td>23</td>
+<td>127</td>
+</tr>
+<tr>
+<td>Double (double)</td>
+<td>64</td>
+<td>1</td>
+<td>11</td>
+<td>52</td>
+<td>1023</td>
+</tr>
+</tbody>
+</table>
+<p>Exponent stored as:
+[
+E_b = E + \text{bias}
+]</p>
+<hr />
+<h3 id="converting-fractions-to-binary">Converting Fractions to Binary</h3>
+<details class="example">
+<summary>Example: 0.75₁₀ → Binary</summary>
+<p><code>0.75 × 2 = 1.5 → 1
+0.50 × 2 = 1.0 → 1
+→ 0.11₂</code></p>
+</details>
+<hr />
+<h3 id="full-ieee-754-encoding-example">Full IEEE 754 Encoding Example</h3>
+<p>Convert <strong>−0.75₁₀</strong> to <strong>single precision</strong>:</p>
+<ol>
+<li>Convert to binary:<br />
+   0.75 = 0.11₂ = 1.1₂ × 2⁻¹</li>
+<li>Sign bit = <strong>1</strong> (negative)</li>
+<li>Exponent = −1 → E_b = 127 − 1 = <strong>126 = 01111110₂</strong></li>
+<li>Fraction = <strong>10000000000000000000000</strong></li>
+</ol>
+<p>Final 32-bit value:</p>
+<div class="highlight"><pre><span></span><code>1 01111110 10000000000000000000000
+</code></pre></div>
 <hr />
 <h2 id="quick-reference-summary">Quick Reference Summary</h2>
 <table>

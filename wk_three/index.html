@@ -460,33 +460,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#designing-logic-circuits" class="md-nav__link">
-    <span class="md-ellipsis">
-      Designing Logic Circuits
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      Summary
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recommended-practice" class="md-nav__link">
-    <span class="md-ellipsis">
-      Recommended Practice
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -566,17 +539,16 @@
 </table>
 <details class="example">
 <summary>Examples of Boolean expressions</summary>
-</details>
 <p>A·B<br />
- A + B<br />
- A'(B + C)<br />
- A ⊕ B</p>
+A + B<br />
+A'(B + C)<br />
+A ⊕ B</p>
+</details>
 <hr />
 <h2 id="truth-tables">Truth Tables</h2>
 <p>A truth table lists <strong>all possible input combinations</strong> and the resulting output.</p>
 <details class="example">
 <summary>Example Truth Table for AND</summary>
-</details>
 <table>
 <thead>
 <tr>
@@ -608,6 +580,7 @@
 </tr>
 </tbody>
 </table>
+</details>
 <hr />
 <h2 id="boolean-identities-simplification-rules">Boolean Identities (Simplification Rules)</h2>
 <table>
@@ -647,13 +620,13 @@
 F = A'B + AB' + AB</p>
 <details class="example">
 <summary>Step-by-Step Simplification</summary>
-</details>
 <p>F = A'B + AB' + AB<br />
  = B(A' + A) + AB'<br />
  = B(1) + AB'<br />
  = B + AB'<br />
  = (B + A)(B + B')<br />
  = A + B</p>
+</details>
 <p><strong>Final Answer:</strong><br />
 F = A + B</p>
 <hr />
@@ -724,9 +697,9 @@ F = 1 for m1, m3, m5, m7<br />
 F = C</p>
 <details class="example">
 <summary>Why this simplifies to C</summary>
-</details>
 <p>C is the only input that is 1 in all grouped minterms.
 A and B change, so they do not appear in the final expression.</p>
+</details>
 <hr />
 <h2 id="logic-gates">Logic Gates</h2>
 <table>
@@ -771,53 +744,6 @@ A and B change, so they do not appear in the final expression.</p>
 </tbody>
 </table>
 <hr />
-<h2 id="designing-logic-circuits">Designing Logic Circuits</h2>
-<ol>
-<li>Identify inputs and outputs.</li>
-<li>Build a <strong>truth table</strong>.</li>
-<li>Convert table to <strong>SOP</strong> expression.</li>
-<li>Simplify using identities or K-map.</li>
-<li>Draw the circuit using logic gates.</li>
-</ol>
-<hr />
-<h2 id="summary">Summary</h2>
-<table>
-<thead>
-<tr>
-<th>Topic</th>
-<th>Key Skill</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Boolean Algebra</td>
-<td>Manipulate expressions</td>
-</tr>
-<tr>
-<td>Truth Tables</td>
-<td>Enumerate logical cases</td>
-</tr>
-<tr>
-<td>SOP/POS</td>
-<td>Convert forms of expressions</td>
-</tr>
-<tr>
-<td>K-Maps</td>
-<td>Simplify visually</td>
-</tr>
-<tr>
-<td>Logic Gates</td>
-<td>Implement circuits in hardware</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="recommended-practice">Recommended Practice</h2>
-<ul>
-<li>Simplify F = A'BC + ABC' + AB'C</li>
-<li>Draw a 3-variable K-map and simplify it</li>
-<li>Convert between SOP and POS forms</li>
-</ul>
 
 
 
