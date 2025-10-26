@@ -1,0 +1,1058 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://gdoyle87.github.io/COMP2825/wk_three/">
+      
+      
+        <link rel="prev" href="./">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Week 2 - Data Representations and Number Systems - COMP2825</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/asciinema-player@3.0.1/dist/bundle/asciinema-player.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#boolean-algebra-logic-simplification-k-maps-and-logic-gates" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="COMP2825" class="md-header__button md-logo" aria-label="COMP2825" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            COMP2825
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Week 2 - Data Representations and Number Systems
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="COMP2825" class="md-nav__button md-logo" aria-label="COMP2825" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    COMP2825
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wk_one/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 1 - Overview of Computer Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Week 2 - Data Representations and Number Systems
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 2 - Data Representations and Number Systems
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#boolean-algebra-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boolean Algebra Basics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#truth-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Truth Tables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boolean-identities-simplification-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boolean Identities (Simplification Rules)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simplification-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simplification Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canonical-forms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Canonical Forms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Canonical Forms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sum-of-products-sop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sum of Products (SOP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-of-sums-pos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Product of Sums (POS)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#karnaugh-maps-k-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Karnaugh Maps (K-Maps)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Karnaugh Maps (K-Maps)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-map-example-3-variables-a-b-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      K-Map Example (3 variables: A, B, C)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logic-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logic Gates
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#designing-logic-circuits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Designing Logic Circuits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended Practice
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Week 2 - Data Representations and Number Systems
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Week 2 - Data Representations and Number Systems
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#boolean-algebra-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boolean Algebra Basics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#truth-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Truth Tables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boolean-identities-simplification-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boolean Identities (Simplification Rules)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simplification-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simplification Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canonical-forms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Canonical Forms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Canonical Forms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sum-of-products-sop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sum of Products (SOP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-of-sums-pos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Product of Sums (POS)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#karnaugh-maps-k-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Karnaugh Maps (K-Maps)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Karnaugh Maps (K-Maps)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-map-example-3-variables-a-b-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      K-Map Example (3 variables: A, B, C)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logic-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logic Gates
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#designing-logic-circuits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Designing Logic Circuits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended Practice
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://gdoyle87.github.io/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Other Notes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="boolean-algebra-logic-simplification-k-maps-and-logic-gates">Boolean Algebra, Logic Simplification, K-Maps, and Logic Gates</h1>
+<p>These notes summarize the key concepts needed to understand Boolean expressions, simplification methods, truth tables, Karnaugh maps, and the design and interpretation of logic circuits.</p>
+<hr />
+<h2 id="boolean-algebra-basics">Boolean Algebra Basics</h2>
+<p>Boolean algebra deals with <strong>binary values</strong> and <strong>logic operations</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Variables</td>
+<td>A, B, C, ...</td>
+</tr>
+<tr>
+<td>Values</td>
+<td>0 (false), 1 (true)</td>
+</tr>
+<tr>
+<td>Functions</td>
+<td>F(A,B,C), G(A,B), ...</td>
+</tr>
+<tr>
+<td>Operations</td>
+<td>NOT (A'), AND (A·B), OR (A+B), XOR (A⊕B)</td>
+</tr>
+</tbody>
+</table>
+<details class="example">
+<summary>Examples of Boolean expressions</summary>
+</details>
+<p>A·B<br />
+ A + B<br />
+ A'(B + C)<br />
+ A ⊕ B</p>
+<hr />
+<h2 id="truth-tables">Truth Tables</h2>
+<p>A truth table lists <strong>all possible input combinations</strong> and the resulting output.</p>
+<details class="example">
+<summary>Example Truth Table for AND</summary>
+</details>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>A·B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="boolean-identities-simplification-rules">Boolean Identities (Simplification Rules)</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Identity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Complement</td>
+<td>A + A' = 1, A·A' = 0</td>
+</tr>
+<tr>
+<td>Identity</td>
+<td>A + 0 = A, A·1 = A</td>
+</tr>
+<tr>
+<td>Null</td>
+<td>A + 1 = 1, A·0 = 0</td>
+</tr>
+<tr>
+<td>Idempotent</td>
+<td>A + A = A, A·A = A</td>
+</tr>
+<tr>
+<td>De Morgan</td>
+<td>(A+B)' = A'·B', (A·B)' = A' + B'</td>
+</tr>
+</tbody>
+</table>
+<p>Use these identities to reduce expressions and minimize gate usage.</p>
+<hr />
+<h2 id="simplification-example">Simplification Example</h2>
+<p>Simplify:
+F = A'B + AB' + AB</p>
+<details class="example">
+<summary>Step-by-Step Simplification</summary>
+</details>
+<p>F = A'B + AB' + AB<br />
+ = B(A' + A) + AB'<br />
+ = B(1) + AB'<br />
+ = B + AB'<br />
+ = (B + A)(B + B')<br />
+ = A + B</p>
+<p><strong>Final Answer:</strong><br />
+F = A + B</p>
+<hr />
+<h2 id="canonical-forms">Canonical Forms</h2>
+<h3 id="sum-of-products-sop">Sum of Products (SOP)</h3>
+<ul>
+<li>Use rows in truth table where <strong>F = 1</strong></li>
+<li>Form <strong>minterms</strong> (AND of input variables)</li>
+<li>OR them together</li>
+</ul>
+<h3 id="product-of-sums-pos">Product of Sums (POS)</h3>
+<ul>
+<li>Use rows in truth table where <strong>F = 0</strong></li>
+<li>Form <strong>maxterms</strong> (OR of input variables)</li>
+<li>AND them together</li>
+</ul>
+<hr />
+<h2 id="karnaugh-maps-k-maps">Karnaugh Maps (K-Maps)</h2>
+<p>K-maps are visual tools for simplifying Boolean expressions.</p>
+<h3 id="rules">Rules</h3>
+<ul>
+<li>Group <strong>1s</strong> in sizes <strong>1, 2, 4, 8, ...</strong></li>
+<li>Groups must be <strong>rectangular</strong></li>
+<li>Groups may <strong>wrap around edges</strong></li>
+<li>Each <strong>1</strong> must be included in at least one group</li>
+<li>Larger groups produce simpler expressions</li>
+</ul>
+<hr />
+<h3 id="k-map-example-3-variables-a-b-c">K-Map Example (3 variables: A, B, C)</h3>
+<p>Truth table function values:
+F = 1 for m1, m3, m5, m7<br />
+(binary inputs 001, 011, 101, 111)</p>
+<p>K-Map:</p>
+<table>
+<thead>
+<tr>
+<th>AB \ C</th>
+<th>0</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>01</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>11</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>10</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Group the column where C = 1 → all 1’s in one group.</p>
+<p>This means <strong>C</strong> remains; A and B vary → they drop out.</p>
+<p><strong>Simplified Expression:</strong><br />
+F = C</p>
+<details class="example">
+<summary>Why this simplifies to C</summary>
+</details>
+<p>C is the only input that is 1 in all grouped minterms.
+A and B change, so they do not appear in the final expression.</p>
+<hr />
+<h2 id="logic-gates">Logic Gates</h2>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Symbol</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NOT</td>
+<td>A'</td>
+<td>Inverts input</td>
+</tr>
+<tr>
+<td>AND</td>
+<td>A·B</td>
+<td>Output 1 if both inputs = 1</td>
+</tr>
+<tr>
+<td>OR</td>
+<td>A + B</td>
+<td>Output 1 if any input = 1</td>
+</tr>
+<tr>
+<td>XOR</td>
+<td>A ⊕ B</td>
+<td>Output 1 only if inputs differ</td>
+</tr>
+<tr>
+<td>NAND</td>
+<td>(A·B)'</td>
+<td>Inverted AND</td>
+</tr>
+<tr>
+<td>NOR</td>
+<td>(A + B)'</td>
+<td>Inverted OR</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="designing-logic-circuits">Designing Logic Circuits</h2>
+<ol>
+<li>Identify inputs and outputs.</li>
+<li>Build a <strong>truth table</strong>.</li>
+<li>Convert table to <strong>SOP</strong> expression.</li>
+<li>Simplify using identities or K-map.</li>
+<li>Draw the circuit using logic gates.</li>
+</ol>
+<hr />
+<h2 id="summary">Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Key Skill</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Boolean Algebra</td>
+<td>Manipulate expressions</td>
+</tr>
+<tr>
+<td>Truth Tables</td>
+<td>Enumerate logical cases</td>
+</tr>
+<tr>
+<td>SOP/POS</td>
+<td>Convert forms of expressions</td>
+</tr>
+<tr>
+<td>K-Maps</td>
+<td>Simplify visually</td>
+</tr>
+<tr>
+<td>Logic Gates</td>
+<td>Implement circuits in hardware</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="recommended-practice">Recommended Practice</h2>
+<ul>
+<li>Simplify F = A'BC + ABC' + AB'C</li>
+<li>Draw a 3-variable K-map and simplify it</li>
+<li>Convert between SOP and POS forms</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "navigation.expand", "navigation.sections"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/asciinema-player@3.0.1/dist/bundle/asciinema-player.js"></script>
+      
+    
+  </body>
+</html>
