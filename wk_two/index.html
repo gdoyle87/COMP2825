@@ -436,49 +436,13 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#floating-point-representation-ieee-754" class="md-nav__link">
-    <span class="md-ellipsis">
-      Floating Point Representation (IEEE 754)
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#converting-fractions-to-binary" class="md-nav__link">
-    <span class="md-ellipsis">
-      Converting Fractions to Binary
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#full-ieee-754-encoding-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Full IEEE 754 Encoding Example
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-reference-summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      Quick Reference Summary
-    </span>
-  </a>
   
 </li>
       
@@ -600,7 +564,7 @@
 <li>Continue until quotient = 0.</li>
 <li>Binary result = remainders read <strong>bottom → top</strong>.</li>
 </ol>
-<details class="example">
+<details class="example" open="open">
 <summary>Example: 224₁₀ → Binary</summary>
 <div class="highlight"><pre><span></span><code>224 ÷ 2 = 112    remainder 0
 112 ÷ 2 = 56     remainder 0
@@ -615,28 +579,92 @@
 </code></pre></div>
 </details>
 <h4 id="binary-decimal-positional-weighting">Binary → Decimal (Positional weighting)</h4>
-<div class="arithmatex">\[
-(a_n…a_3a_2a_1a_0)_2 = \sum a_i · 2^i
-\]</div>
-<details class="example">
+<p>(aₙ … a₃a₂a₁a₀)₂ = Σ aᵢ · 2ⁱ</p>
+<details class="example" open="open">
 <summary>Example: 1101₂ → Decimal</summary>
-<p><code>(1×2³) + (1×2²) + (0×2¹) + (1×2⁰)
-= 8 + 4 + 0 + 1 = 13₁₀</code></p>
+<p>1101₂</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: center;">i₃</th>
+<th style="text-align: center;">i₂</th>
+<th style="text-align: center;">i₁</th>
+<th style="text-align: center;">i₀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Bit value aᵢ</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Term aᵢ·2ⁱ</td>
+<td style="text-align: center;">1×2³</td>
+<td style="text-align: center;">1×2²</td>
+<td style="text-align: center;">0×2¹</td>
+<td style="text-align: center;">1×2⁰</td>
+</tr>
+<tr>
+<td style="text-align: left;">Value</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Therefore,<br />
+1101₂ = 8 + 4 + 0 + 1 = 13₁₀</p>
 </details>
 <hr />
 <h3 id="binary-hexadecimal-group-by-4-bits">Binary ↔ Hexadecimal (Group by 4 bits)</h3>
-<details class="example">
-<summary>Example: Binary → Hex</summary>
-<p><code>1101 0110 1001₂
-D    6    9
-→ D69₁₆</code></p>
+<details class="example" open="open">
+<summary>Example: 110101101001₂ → Hexadecimal</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Binary (4-bit groups)</th>
+<th style="text-align: center;">1101</th>
+<th style="text-align: center;">0110</th>
+<th style="text-align: center;">1001</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Hexadecimal</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">9</td>
+</tr>
+</tbody>
+</table>
 </details>
-<details class="example">
-<summary>Example: Hex → Binary</summary>
-<p><code>A  F  2
-1010 1111 0010₂</code></p>
+<details class="example" open="open">
+<summary>Example: AF2₁₆ → Binary</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Hexadecimal</th>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">F</th>
+<th style="text-align: center;">2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Binary (4-bit groups)</td>
+<td style="text-align: center;">1010</td>
+<td style="text-align: center;">1111</td>
+<td style="text-align: center;">0010</td>
+</tr>
+</tbody>
+</table>
 </details>
-<hr />
+<p>-</p>
 <h3 id="representing-integers-in-binary">Representing Integers in Binary</h3>
 <h4 id="unsigned-integers">Unsigned Integers</h4>
 <p>With <strong>N bits</strong>, values range from:
@@ -672,18 +700,17 @@ D    6    9
 <li>Invert each bit.</li>
 <li>Add 1.</li>
 </ol>
-<details class="example">
-<summary>Example: Represent −24₁₀</summary>
-<div class="highlight"><pre><span></span><code>+24 = 00011000₂
+<details class="example" open="open">
+<summary>Example: Represent −24₁₀ using two's complement</summary>
+<div class="highlight"><pre><span></span><code>   +24 = 00011000₂
 invert → 11100111₂
-+1 → 11101000₂
-→ −24 = 11101000₂
+    +1 → 11101000₂
+         -------- 
+   −24 = 11101000₂
 </code></pre></div>
 </details>
 <h4 id="twos-complement-integer-range">Two’s Complement Integer Range</h4>
-<div class="arithmatex">\[
--(2^{N-1}) \text{ to } (2^{N-1} - 1)
-\]</div>
+<p>Formula: −(2ⁿ⁻¹) → (2ⁿ⁻¹ − 1)</p>
 <table>
 <thead>
 <tr>
@@ -694,7 +721,7 @@ invert → 11100111₂
 <tbody>
 <tr>
 <td>8-bit</td>
-<td>−128 → +127</td>
+<td>−128   → +127</td>
 </tr>
 <tr>
 <td>16-bit</td>
@@ -704,122 +731,214 @@ invert → 11100111₂
 </table>
 <hr />
 <h4 id="subtraction-using-twos-complement">Subtraction Using Two’s Complement</h4>
-<div class="arithmatex">\[
-a - b = a + (-b)
-\]</div>
-<details class="example">
-<summary>Example: 3 − 13</summary>
-<div class="highlight"><pre><span></span><code>3 = 00000011
-13 = 00001101
+<p>Formula: a - b = a + (-b)</p>
+<details class="example" open="open">
+<summary>Example: 3 − 13 using two's complement</summary>
+<div class="highlight"><pre><span></span><code>       3 = 00000011₂  
 
--13 = invert + 1 = 11110011
+     +13 = 00001101₂  
+  invert → 11110010₂  
+      +1 → 11110011₂  
+           ────────  
+     −13 = 11110011₂
 
-00000011
-+11110011
-----------
-11110110 = −10₁₀
+
+       3 = 00000011₂  
+ + (−13) = 11110011₂
+           --------
+         = 11110110₂ 
+
+Since the result begins with 1, it is negative.  
+Take the two’s complement again to find its value:
+
+3 + (-13) = 11110110₂ 
+   invert → 00001001₂ 
+       +1 → 00001010₂ = −10₁₀
 </code></pre></div>
 </details>
+<div class="admonition warning">
+<p class="admonition-title">Bit width must be sufficient</p>
+<p>Two’s complement arithmetic only works correctly when the chosen bit width
+can represent both operands <strong>and their result</strong>.  If the result falls
+outside the representable range (e.g. outside −128 to +127 for 8-bit signed
+integers), <strong>overflow</strong> occurs and the computed value will be incorrect.</p>
+</div>
 <hr />
-<h4 id="floating-point-representation-ieee-754">Floating Point Representation (IEEE 754)</h4>
-<p>Real numbers are stored in normalized form:</p>
-<div class="arithmatex">\[
-(-1)^S · (1.F) · 2^E
-\]</div>
-<p>Where:</p>
+<h1 id="floating-point-numbers-ieee-754-a-natural-analogy-to-scientific-notation">Floating-Point Numbers (IEEE 754): A Natural Analogy to Scientific Notation</h1>
+<p>Computers represent real numbers using <strong>floating-point format</strong>, which works like <strong>scientific notation</strong>—but in <strong>binary</strong> instead of decimal.<br />
+This lets us efficiently store both very large and very small numbers using a fixed number of bits.</p>
+<hr />
+<h2 id="1-scientific-notation-the-decimal-version">1. Scientific Notation: The Decimal Version</h2>
+<p>In decimal, numbers can be written in <strong>scientific notation</strong> as:</p>
+<div class="highlight"><pre><span></span><code>(−1)ˢ × m × 10ᴱ
+</code></pre></div>
+<p>where:</p>
 <ul>
-<li><strong>S</strong> = sign bit</li>
-<li><strong>F</strong> = fraction (mantissa)</li>
-<li><strong>E</strong> = exponent (stored using a bias)</li>
+<li><strong>S</strong> – sign (0 = positive, 1 = negative)  </li>
+<li><strong>m</strong> – significand (or <em>mantissa</em>), with exactly one non-zero digit before the decimal point  </li>
+<li><strong>E</strong> – exponent, the power of ten that scales the significand  </li>
 </ul>
-<table>
-<thead>
-<tr>
-<th>Precision</th>
-<th>Total Bits</th>
-<th>Sign</th>
-<th>Exponent</th>
-<th>Fraction</th>
-<th>Bias</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Single (float)</td>
-<td>32</td>
-<td>1</td>
-<td>8</td>
-<td>23</td>
-<td>127</td>
-</tr>
-<tr>
-<td>Double (double)</td>
-<td>64</td>
-<td>1</td>
-<td>11</td>
-<td>52</td>
-<td>1023</td>
-</tr>
-</tbody>
-</table>
-<p>Exponent stored as:
-[
-E_b = E + \text{bias}
-]</p>
+<p><strong>Example</strong></p>
+<div class="highlight"><pre><span></span><code>−5470 = (−1)¹ × 5.47 × 10³
+</code></pre></div>
+<p>This is the <strong>normalized form</strong>, ensuring a single non-zero digit appears before the decimal point.</p>
 <hr />
-<h3 id="converting-fractions-to-binary">Converting Fractions to Binary</h3>
-<details class="example">
-<summary>Example: 0.75₁₀ → Binary</summary>
-<p><code>0.75 × 2 = 1.5 → 1
-0.50 × 2 = 1.0 → 1
-→ 0.11₂</code></p>
-</details>
-<hr />
-<h3 id="full-ieee-754-encoding-example">Full IEEE 754 Encoding Example</h3>
-<p>Convert <strong>−0.75₁₀</strong> to <strong>single precision</strong>:</p>
-<ol>
-<li>Convert to binary:<br />
-   0.75 = 0.11₂ = 1.1₂ × 2⁻¹</li>
-<li>Sign bit = <strong>1</strong> (negative)</li>
-<li>Exponent = −1 → E_b = 127 − 1 = <strong>126 = 01111110₂</strong></li>
-<li>Fraction = <strong>10000000000000000000000</strong></li>
-</ol>
-<p>Final 32-bit value:</p>
-<div class="highlight"><pre><span></span><code>1 01111110 10000000000000000000000
+<h2 id="2-binary-scientific-notation-same-idea-base-2">2. Binary Scientific Notation: Same Idea, Base-2</h2>
+<p>The same idea applies in binary:</p>
+<div class="highlight"><pre><span></span><code>(−1)ˢ × m × 2ᴱ
+</code></pre></div>
+<p>where:</p>
+<ul>
+<li><strong>S</strong> – sign bit (0 = positive, 1 = negative)  </li>
+<li><strong>m</strong> – significand, representing the significant binary digits  </li>
+<li><strong>E</strong> – exponent, the power of two that scales the significand  </li>
+</ul>
+<p>In binary, the only possible non-zero digit is <strong>1</strong>, so all normalized numbers have:</p>
+<div class="highlight"><pre><span></span><code>m = 1.F
+</code></pre></div>
+<p>where <strong>F</strong> is the fractional part after the binary point.</p>
+<p>When storing these numbers, we can drop constants that never change.<br />
+The leading <code>1.</code> is always implied, so only the following are stored:
+- <strong>S</strong> – sign bit<br />
+- <strong>E</strong> – exponent<br />
+- <strong>F</strong> – fraction bits  </p>
+<p>The general form becomes:</p>
+<div class="highlight"><pre><span></span><code>(−1)ˢ × (1.F) × 2ᴱ
 </code></pre></div>
 <hr />
-<h2 id="quick-reference-summary">Quick Reference Summary</h2>
+<h2 id="3-the-exponent-bias">3. The Exponent Bias</h2>
+<p>Exponents can be positive or negative, but hardware stores unsigned binary values.<br />
+To handle both, IEEE 754 adds a <strong>bias</strong> so all exponents fit in a positive range.</p>
 <table>
 <thead>
 <tr>
-<th>Type</th>
-<th>Form</th>
-<th>Notes</th>
+<th style="text-align: left;">Format</th>
+<th style="text-align: right;">Exponent Bits</th>
+<th style="text-align: left;">Bias Formula</th>
+<th style="text-align: right;">Bias Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Two’s Complement</td>
-<td>invert bits + 1</td>
-<td>Only one zero &amp; supports direct subtraction</td>
+<td style="text-align: left;">Single</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">2⁷ − 1</td>
+<td style="text-align: right;"><strong>127</strong></td>
 </tr>
 <tr>
-<td>Float Normalize</td>
-<td>1.F × 2^E</td>
-<td>Only one leading 1 (implicit)</td>
-</tr>
-<tr>
-<td>IEEE Exponent</td>
-<td>stored = E + bias</td>
-<td>bias = 127 (float), 1023 (double)</td>
-</tr>
-<tr>
-<td>Binary ↔ Hex</td>
-<td>Group bits into 4</td>
-<td>Fast conversion</td>
+<td style="text-align: left;">Double</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">2¹⁰ − 1</td>
+<td style="text-align: right;"><strong>1023</strong></td>
 </tr>
 </tbody>
 </table>
+<p>The stored exponent is:</p>
+<div class="highlight"><pre><span></span><code>Eᵦ = E + Bias
+</code></pre></div>
+<p><strong>Example</strong></p>
+<div class="highlight"><pre><span></span><code>If E = −1 (single precision)
+Eᵦ = −1 + 127 = 126 = 01111110₂
+</code></pre></div>
+<hr />
+<h2 id="4-ieee-754-bit-layout">4. IEEE 754 Bit Layout</h2>
+<p>Each floating-point number consists of three fields:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Precision</th>
+<th style="text-align: right;">Total Bits</th>
+<th style="text-align: right;">Sign (S)</th>
+<th style="text-align: right;">Biased Exponent (Eᵦ)</th>
+<th style="text-align: right;">Fraction (F)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Single</strong></td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">23</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Double</strong></td>
+<td style="text-align: right;">64</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">52</td>
+</tr>
+</tbody>
+</table>
+<details class="abstract" open="open">
+<summary>Example – Encoding −0.75₁₀ as a 32-bit Float</summary>
+<p><strong>Step 1 – Include the sign and convert to binary</strong></p>
+<p>The number is <strong>negative</strong>, so the <strong>sign bit (S)</strong> will be <strong>1</strong>.</p>
+<p>Convert the magnitude (0.75) to binary by repeatedly multiplying by 2 and recording each carry:</p>
+<div class="highlight"><pre><span></span><code>0.75 × 2 = 1.5 → 1
+0.50 × 2 = 1.0 → 1
+</code></pre></div>
+<p>So the positive part is:</p>
+<div class="highlight"><pre><span></span><code>0.75₁₀ = 0.11₂
+</code></pre></div>
+<p>Add the sign and express it in binary scientific notation:</p>
+<div class="highlight"><pre><span></span><code>−0.75₁₀ = (−1)¹ × 1.1₂ × 2⁻¹
+</code></pre></div>
+<hr />
+<p><strong>Step 2 – Identify the fields</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Component</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>S</strong></td>
+<td style="text-align: left;">Sign bit</td>
+<td style="text-align: left;">1 (negative)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>E</strong></td>
+<td style="text-align: left;">Exponent</td>
+<td style="text-align: left;">−1</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>F</strong></td>
+<td style="text-align: left;">Fraction</td>
+<td style="text-align: left;">1</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Step 3 – Apply the bias</strong></p>
+<div class="highlight"><pre><span></span><code>Eᵦ = E + Bias = −1 + 127 = 126 = 01111110₂
+</code></pre></div>
+<hr />
+<p><strong>Step 4 – Assemble the fields</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Sign</th>
+<th style="text-align: left;">Exponent</th>
+<th style="text-align: left;">Fraction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">01111110</td>
+<td style="text-align: left;">10000000000000000000000</td>
+</tr>
+</tbody>
+</table>
+<p>*note that the F is padded with 0s to fill all 23 bits</p>
+<p><strong>Step 5 – Final 32-bit representation</strong></p>
+<div class="highlight"><pre><span></span><code>10111111010000000000000000000000₂
+</code></pre></div>
+</details>
 
 
 
