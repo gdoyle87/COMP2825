@@ -602,21 +602,22 @@
 </ol>
 <details class="example">
 <summary>Example: 224₁₀ → Binary</summary>
-<div class="highlight"><pre><span></span><code>224 ÷ 2 = 112 r0
-112 ÷ 2 = 56 r0
-56 ÷ 2 = 28 r0
-28 ÷ 2 = 14 r0
-14 ÷ 2 = 7 r0
-7 ÷ 2 = 3 r1
-3 ÷ 2 = 1 r1
-1 ÷ 2 = 0 r1
-11100000₂
+<div class="highlight"><pre><span></span><code>224 ÷ 2 = 112    remainder 0
+112 ÷ 2 = 56     remainder 0
+56 ÷ 2 = 28      remainder 0
+28 ÷ 2 = 14      remainder 0
+14 ÷ 2 = 7       remainder 0
+7 ÷ 2 = 3        remainder 1
+3 ÷ 2 = 1        remainder 1
+1 ÷ 2 = 0        remainder 1
+
+11100000₂   (comes from the remainders)
 </code></pre></div>
 </details>
 <h4 id="binary-decimal-positional-weighting">Binary → Decimal (Positional weighting)</h4>
-<p>[
-(an…a_3a_2a_1a_0)_2 = \sum a_i · 2^i
-]</p>
+<div class="arithmatex">\[
+(an…a_3a_2a_1a_0)\_2 = \sum a_i · 2^i
+\]</div>
 <details class="example">
 <summary>Example: 1101₂ → Decimal</summary>
 <p><code>(1×2³) + (1×2²) + (0×2¹) + (1×2⁰)
@@ -680,9 +681,9 @@ invert → 11100111₂
 </code></pre></div>
 </details>
 <h4 id="twos-complement-integer-range">Two’s Complement Integer Range</h4>
-<p>[
+<div class="arithmatex">\[
 -(2^{N-1}) \text{ to } (2^{N-1} - 1)
-]</p>
+\]</div>
 <table>
 <thead>
 <tr>
@@ -703,9 +704,9 @@ invert → 11100111₂
 </table>
 <hr />
 <h4 id="subtraction-using-twos-complement">Subtraction Using Two’s Complement</h4>
-<p>[
+<div class="arithmatex">\[
 a - b = a + (-b)
-]</p>
+\]</div>
 <details class="example">
 <summary>Example: 3 − 13</summary>
 <div class="highlight"><pre><span></span><code>3 = 00000011
@@ -722,9 +723,9 @@ a - b = a + (-b)
 <hr />
 <h4 id="floating-point-representation-ieee-754">Floating Point Representation (IEEE 754)</h4>
 <p>Real numbers are stored in normalized form:</p>
-<p>[
+<div class="arithmatex">\[
 (-1)^S · (1.F) · 2^E
-]</p>
+\]</div>
 <p>Where:</p>
 <ul>
 <li><strong>S</strong> = sign bit</li>
@@ -871,6 +872,12 @@ E_b = E + \text{bias}
     
     
       <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../js/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/asciinema-player@3.0.1/dist/bundle/asciinema-player.js"></script>
       
