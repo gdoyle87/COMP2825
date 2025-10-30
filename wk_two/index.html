@@ -797,18 +797,21 @@ This lets us efficiently store both very large and very small numbers using a fi
 <div class="highlight"><pre><span></span><code>m = 1.F
 </code></pre></div>
 <p>where <strong>F</strong> is the fractional part after the binary point.</p>
-<p>When storing these numbers, we can drop constants that never change.<br />
-The leading <code>1.</code> is always implied, so only the following are stored:
-- <strong>S</strong> – sign bit<br />
-- <strong>E</strong> – exponent<br />
-- <strong>F</strong> – fraction bits  </p>
 <p>The general form becomes:</p>
-<div class="highlight"><pre><span></span><code>(−1)ˢ × (1.F) × 2ᴱ
+<p><div class="highlight"><pre><span></span><code>(−1)ˢ × (1.F) × 2ᴱ
 </code></pre></div>
+When storing these numbers, we can drop constants that never change.<br />
+Therefore we only need to store:</p>
+<ul>
+<li><strong>S</strong> – sign bit  </li>
+<li><strong>E</strong> – exponent  </li>
+<li><strong>F</strong> – fraction bits  </li>
+</ul>
 <hr />
 <h2 id="3-the-exponent-bias">3. The Exponent Bias</h2>
-<p>Exponents can be positive or negative, but hardware stores unsigned binary values.<br />
-To handle both, IEEE 754 adds a <strong>bias</strong> so all exponents fit in a positive range.</p>
+<p>Exponents can be positive or negative, but hardware stores unsigned binary
+values.  To handle both, IEEE 754 adds a <strong>bias</strong> so all exponents fit in a
+positive range.</p>
 <table>
 <thead>
 <tr>
@@ -836,33 +839,35 @@ To handle both, IEEE 754 adds a <strong>bias</strong> so all exponents fit in a 
 <p>The stored exponent is:</p>
 <div class="highlight"><pre><span></span><code>Eᵦ = E + Bias
 </code></pre></div>
-<p><strong>Example</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
 <div class="highlight"><pre><span></span><code>If E = −1 (single precision)
 Eᵦ = −1 + 127 = 126 = 01111110₂
 </code></pre></div>
+</div>
 <hr />
 <h2 id="4-ieee-754-bit-layout">4. IEEE 754 Bit Layout</h2>
-<p>Each floating-point number consists of three fields:</p>
+<p>Each floating-point number is divided into <strong>three fields</strong>, each with a fixed <strong>bit length</strong>:</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Precision</th>
+<th style="text-align: left;">Precision (Format)</th>
 <th style="text-align: right;">Total Bits</th>
-<th style="text-align: right;">Sign (S)</th>
-<th style="text-align: right;">Biased Exponent (Eᵦ)</th>
-<th style="text-align: right;">Fraction (F)</th>
+<th style="text-align: right;">Sign Field (bits)</th>
+<th style="text-align: right;">Exponent Field (bits)</th>
+<th style="text-align: right;">Fraction Field (bits)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>Single</strong></td>
+<td style="text-align: left;"><strong>Single (float)</strong></td>
 <td style="text-align: right;">32</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">8</td>
 <td style="text-align: right;">23</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Double</strong></td>
+<td style="text-align: left;"><strong>Double (double)</strong></td>
 <td style="text-align: right;">64</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">11</td>
